@@ -75,30 +75,7 @@ app.get('/muzikler/:id', function (req, res) {
     });
 });
 
- app.post('/add-puan', function (req, res) {
 
-     console.log("sarkici: " + req.body.sarkici);
-    
-    const sarkici = req.body.sarkici;
-    const sarkiAdi = req.body.sarkiAdi;
-    const puan = req.body.puan;
-   
-    
-
-
-
-     dbConn.query("INSERT INTO muzikler SET ? ", {
-         sarkici: sarkici, sarkiAdi: sarkiAdi , puan: puan
-         
-    
-     }, function (error, results, fields) {
-        if (error) throw error;
-        return res.send({ error: false, data: results, messege: 'New add has been created successfully.' });
-     });
-
-
-
- });
 
  // Retrieve muzikler with id 
 app.post('/muzikler/:id', function (req, res) {
@@ -109,7 +86,7 @@ app.post('/muzikler/:id', function (req, res) {
         return res.status(400).send({ error: true, message: 'Please provide id' });
     }
 
-    dbConn.update('SELECT * FROM muzikler WHERE id=?', id, function (error, results, fields) {
+    dbConn.query('UPDATE muzikler SET puan = puan + 5 WHERE id=?', id, function (error, results, fields) {
         if (error) throw error;
 
         return res.send(results);

@@ -32,7 +32,7 @@ const Muzik = ({  }) => {
         {muzik.map((muzik, index) =>
                 <Sarki sarkici={muzik.sarkici}
                     sarkiAdi={muzik.sarkiAdi}
-                    puan={muzik.sarkiAdi}
+                    puan={muzik.puan}
                     display={false}
                     link={muzik.link}
                     id={muzik.id}

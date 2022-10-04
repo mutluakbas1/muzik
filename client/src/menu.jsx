@@ -13,12 +13,6 @@ const Menu = () => {
               </Link>
             </li>
 
-            <li className="nav-item">
-              <Link href="/addPuan">
-                <a className="nav-link">Add Puan</a>
-              </Link>
-            </li>
-
            
           </ul>
         </div>
